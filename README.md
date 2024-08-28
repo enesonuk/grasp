@@ -1,27 +1,27 @@
-# Grasp
+# The Pokédex
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
+##🚀 Getting Started
+Get this up and running on your local machine.
 
-## Development server
+1. Clone the Repo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```shell
+git clone https://github.com/your-repo-url/grasp.git
+cd grasp
+```
 
-## Code scaffolding
+2. Install Dependencies
+Make sure you’ve got Node.js installed, then run:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell
+npm install
+```
+This pulls in all the necessary packages to get you started.
 
-## Build
+3. Fire Up the Dev Server
+Spin up the server.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```shell
+ng serve
+```
+Now, head over to your browser and navigate to http://localhost:4200/. You should see the Pokédex!
