@@ -5,8 +5,8 @@ import { PokemonDetail } from '../../models/pokemon.model';
 import { PanelModule } from 'primeng/panel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TableModule } from 'primeng/table';
-import { CommonModule, Location} from '@angular/common';
-import { Button } from 'primeng/button';
+import { CommonModule} from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +14,8 @@ import { Button } from 'primeng/button';
   selector: 'app-pokemon-detail',
   templateUrl: './pokemon-detail.component.html',
   styleUrls: ['./pokemon-detail.component.scss'],
-  imports: [PanelModule, ProgressSpinnerModule, TableModule, CommonModule, Button],
+  imports: [PanelModule, ProgressSpinnerModule, TableModule, CommonModule],
+  providers: [PokemonService, Router],
 })
 export class PokemonDetailComponent implements OnInit {
   pokemon: PokemonDetail = {} as PokemonDetail;
@@ -22,8 +23,8 @@ export class PokemonDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location,
-    private pokemonService: PokemonService
+    private pokemonService: PokemonService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -51,8 +52,12 @@ export class PokemonDetailComponent implements OnInit {
     return pokemon.types.map((type: { type: { name: string } }) => type.type.name).join(', ');
   }
 
+  getPokemonAbilities(pokemon: PokemonDetail): string {
+    return pokemon.abilities.map((ability: { ability: { name: string } }) => ability.ability.name).join(', ');
+  }
+
   goBack() {
-    this.location.back();
+    this.router.navigate(['/']);
   }
 
   ngOnDestroy() {

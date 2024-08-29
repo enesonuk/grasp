@@ -1,44 +1,56 @@
 <div *ngIf="loading" class="loading-container">
-    <p-progressSpinner></p-progressSpinner>
+  <p-progressSpinner></p-progressSpinner>
+</div>
+
+<i class="pi pi-arrow-left back-button" (click)="goBack()"></i>
+<div *ngIf="!loading && pokemon">
+  <div class="pokemon-header">
+    <img
+      [src]="pokemon.sprites.front_default"
+      [alt]="pokemon.name"
+      width="150"
+    />
+    <h2>{{ pokemon.name | titlecase }}</h2>
   </div>
-  
-  <button pButton type="button" label="Back" class="back-button" (click)="goBack()"></button>
-  <div *ngIf="!loading && pokemon" class="pokemon-detail-container">
-    <div class="pokemon-header">
-      <h2>{{ pokemon.name | titlecase }}</h2>
-      <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" width="150" />
-    </div>
-  
-    <p-panel header="Basic Information" [toggleable]="true" [style]="{width: '100%'}">
-      <div class="pokemon-info">
-        <div class="info-item">
-          <strong>ID:</strong> {{ pokemon.id }}
+
+  <div class="pokemon-detail-container">
+    <p-panel class="info" header="Information">
+      <div class="basic-info">
+        <div class="pokemon-info">
+          <div class="info-item"><strong>ID:</strong> {{ pokemon.id }}</div>
+          <div class="info-item">
+            <strong>Base Experience:</strong> {{ pokemon.base_experience }}
+          </div>
+          <div class="info-item">
+            <strong>Height:</strong> {{ pokemon.height }}
+          </div>
+          <div class="info-item">
+            <strong>Weight:</strong> {{ pokemon.weight }}
+          </div>
+          <div class="info-item">
+            <strong>Types:</strong> {{ getPokemonTypes(pokemon) | titlecase }}
+          </div>
+          <div class="info-item">
+            <strong>Abilities:</strong>
+            {{ getPokemonAbilities(pokemon) | titlecase }}
+          </div>
         </div>
-        <div class="info-item">
-          <strong>Base Experience:</strong> {{ pokemon.base_experience }}
-        </div>
-        <div class="info-item">
-          <strong>Height:</strong> {{ pokemon.height }}
-        </div>
-        <div class="info-item">
-          <strong>Weight:</strong> {{ pokemon.weight }}
-        </div>
-        <div class="info-item">
-          <strong>Types:</strong> {{ getPokemonTypes(pokemon) }}
+        <div class="pokemon-images">
+          <div class="image-container">
+            <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
+            <p class="image-text">Front</p>
+          </div>
+          <div class="image-container">
+            <img [src]="pokemon.sprites.back_default" [alt]="pokemon.name" />
+            <p class="image-text">Back</p>
+          </div>
         </div>
       </div>
-    </p-panel>
-  
-    <p-panel header="Abilities" [toggleable]="true" [style]="{width: '100%'}">
-      <ul class="abilities-list">
-        <li *ngFor="let ability of pokemon.abilities">
-          {{ ability.ability.name | titlecase }} <span *ngIf="ability.is_hidden">(Hidden)</span>
-        </li>
-      </ul>
-    </p-panel>
-  
-    <p-panel header="Stats" [toggleable]="true" [style]="{width: '100%'}">
-      <p-table [value]="pokemon.stats" [paginator]="false" [rows]="pokemon.stats.length" [style]="{width: '100%'}">
+      <p-table
+        [value]="pokemon.stats"
+        [paginator]="false"
+        [rows]="pokemon.stats.length"
+      >
         <ng-template pTemplate="header">
           <tr>
             <th>Stat</th>
@@ -54,7 +66,8 @@
       </p-table>
     </p-panel>
   </div>
-  
-  <div *ngIf="!loading && !pokemon">
-    <p>Pokémon not found.</p>
-  </div>
+</div>
+
+<div *ngIf="!loading && !pokemon">
+  <p>Pokémon not found.</p>
+</div>
