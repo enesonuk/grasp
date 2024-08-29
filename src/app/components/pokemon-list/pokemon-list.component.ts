@@ -42,17 +42,26 @@ export class PokemonListComponent implements OnInit {
   loading: boolean = true;
 
   pokemonTypes: { label: string, value: string, color: string }[] = [
-    { label: 'Fire', value: 'fire', color: '#FF4500' },
-    { label: 'Water', value: 'water', color: '#1E90FF' },
-    { label: 'Grass', value: 'grass', color: '#00FF00' },
-    { label: 'Electric', value: 'electric', color: '#FFD700' },
-    { label: 'Psychic', value: 'psychic', color: '#9932CC' },
-    { label: 'Ice', value: 'ice', color: '#00FFFF' },
-    { label: 'Dragon', value: 'dragon', color: '#FF8C00' },
-    { label: 'Dark', value: 'dark', color: '#2F4F4F' },
-    { label: 'Fairy', value: 'fairy', color: '#FF69B4' },
-    { label: 'Normal', value: 'normal', color: '#A9A9A9' },
+    { label: 'Fire', value: 'fire', color: '#FF8A80' },
+    { label: 'Water', value: 'water', color: '#81D4FA' },
+    { label: 'Grass', value: 'grass', color: '#A5D6A7' },
+    { label: 'Electric', value: 'electric', color: '#FFF176' },
+    { label: 'Psychic', value: 'psychic', color: '#CE93D8' },
+    { label: 'Ice', value: 'ice', color: '#80DEEA' },
+    { label: 'Dragon', value: 'dragon', color: '#FFCC80' },
+    { label: 'Dark', value: 'dark', color: '#B0BEC5' },
+    { label: 'Fairy', value: 'fairy', color: '#F48FB1' },
+    { label: 'Normal', value: 'normal', color: '#E0E0E0' },
+    { label: 'Flying', value: 'flying', color: '#B39DDB' },
+    { label: 'Bug', value: 'bug', color: '#C5E1A5' },
+    { label: 'Poison', value: 'poison', color: '#BA68C8' },
+    { label: 'Ground', value: 'ground', color: '#D7CCC8' },
+    { label: 'Fighting', value: 'fighting', color: '#FFAB91' },
+    { label: 'Ghost', value: 'ghost', color: '#B39DDB' },
+    { label: 'Rock', value: 'rock', color: '#D5CBB2' },
+    { label: 'Steel', value: 'steel', color: '#B0BEC5' },
   ];
+  
 
   constructor(private pokemonService: PokemonService, private router: Router) {}
 

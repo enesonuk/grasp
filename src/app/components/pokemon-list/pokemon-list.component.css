@@ -1,14 +1,12 @@
-.p-tag {
+::ng-deep .p-tag {
   border-radius: 5px;
   font-weight: bold;
   padding: 5px 10px;
   text-transform: capitalize;
+  margin-right: 10px;
 }
 
-.pokemon-list-container {
-  .p-tag {
-    margin-right: 5px;
-    margin-bottom: 5px;
-    display: inline-block;
-  }
+::ng-deep .p-datatable-wrapper {
+  border-radius: 20px;
+  border: 1px solid #dbe8fb;
 }

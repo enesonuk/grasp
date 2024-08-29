@@ -46,7 +46,6 @@
                     [style]="{ 'background-color': option.color, 'color': 'white' }"
                     class="mr-2">
                   </p-tag>
-                  <span class="ml-1 mt-1">{{ option.label }}</span>
                 </ng-template>
               </p-multiSelect>
             </ng-template>
@@ -58,7 +57,7 @@
     <ng-template pTemplate="body" let-pokemon>
       <tr (click)="viewDetails(pokemon.id)">
         <td>{{ pokemon.id }}</td>
-        <td><img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" width="50" class="shadow-4" style="height: 40px" /></td>
+        <td><img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" /></td>
         <td>{{ pokemon.name | titlecase }}</td>
         <td>
           <ng-container *ngFor="let type of pokemon.types">
